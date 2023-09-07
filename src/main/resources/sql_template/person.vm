@@ -1,0 +1,9 @@
+SELECT *
+FROM persons
+WHERE 1 = 1
+#if($requestDTO.id())
+AND id = '${requestDTO.id().get(0)}'
+#end
+#if($requestDTO.name())
+AND name = '${requestDTO.name()}'
+#end

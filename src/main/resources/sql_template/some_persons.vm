@@ -1,0 +1,10 @@
+SELECT *
+FROM persons
+WHERE 1=1
+#if(${requestDTO.id()} && !$person_id_set.isEmpty())
+AND id IN (
+    #foreach($person in ${requestDTO.id()})
+    '$person'
+        #if(!$foreach.last) , #end
+    #end)
+#end;
